@@ -7,4 +7,6 @@
 
   <include file="classpath:db/changelog/ddl/initial-schema.xml"/>
   <include file="classpath:db/changelog/dml/initial-data.xml"/>
+
+  <include file="classpath:db/changelog/ddl/001-add-phone-column-to-customers.xml"/>
 </databaseChangeLog>

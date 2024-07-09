@@ -18,6 +18,10 @@
       <column name="name" value="Alice Davis"/>
       <column name="email" value="alice@example.com"/>
     </insert>
+    <insert tableName="customers">
+      <column name="name" value="Alex Wu"/>
+      <column name="email" value="alexwu@example.com"/>
+    </insert>
   </changeSet>
 
   <changeSet id="2" author="almas">
@@ -57,17 +61,22 @@
     <insert tableName="orders">
       <column name="customer_id" value="1"/>
       <column name="order_date" value="2024-07-01 10:00:00"/>
-      <column name="total_amount" value="1700.00"/>
+      <column name="total_amount" value="1300.00"/>
     </insert>
     <insert tableName="orders">
       <column name="customer_id" value="2"/>
       <column name="order_date" value="2024-07-02 11:00:00"/>
-      <column name="total_amount" value="1234.00"/>
+      <column name="total_amount" value="4500.00"/>
     </insert>
     <insert tableName="orders">
       <column name="customer_id" value="3"/>
       <column name="order_date" value="2024-07-05 9:30:00"/>
-      <column name="total_amount" value="600.00"/>
+      <column name="total_amount" value="2000.00"/>
+    </insert>
+    <insert tableName="orders">
+      <column name="customer_id" value="4"/>
+      <column name="order_date" value="2024-07-06 8:30:00"/>
+      <column name="total_amount" value="950.00"/>
     </insert>
   </changeSet>
 
@@ -122,12 +131,12 @@
       <column name="sale_date" value="2024-07-01 10:00:00"/>
       <column name="amount" value="10300.00"/>
     </insert>
-    <insert tableName="orders">
+    <insert tableName="sales">
       <column name="order_id" value="2"/>
       <column name="sale_date" value="2024-07-02 11:00:00"/>
       <column name="amount" value="4500.00"/>
     </insert>
-    <insert tableName="orders">
+    <insert tableName="sales">
       <column name="order_id" value="3"/>
       <column name="sale_date" value="2024-07-05 9:30:00"/>
       <column name="amount" value="2000.00"/>
@@ -140,20 +149,25 @@
       <column name="item_id" value="3"/>
       <column name="added_at" value="2024-07-02 09:10:00"/>
     </insert>
-    <insert tableName="item_id">
+    <insert tableName="wishlist">
       <column name="customer_id" value="1"/>
       <column name="item_id" value="2"/>
       <column name="added_at" value="2024-07-03 11:15:00"/>
     </insert>
-    <insert tableName="orders">
+    <insert tableName="wishlist">
       <column name="customer_id" value="3"/>
       <column name="item_id" value="4"/>
       <column name="added_at" value="2024-07-04 09:15:00"/>
     </insert>
-    <insert tableName="orders">
+    <insert tableName="wishlist">
       <column name="customer_id" value="3"/>
       <column name="item_id" value="3"/>
       <column name="added_at" value="2024-07-05 13:45:00"/>
+    </insert>
+    <insert tableName="wishlist">
+      <column name="customer_id" value="4"/>
+      <column name="item_id" value="3"/>
+      <column name="added_at" value="2024-07-06 10:30:00"/>
     </insert>
   </changeSet>
 </databaseChangeLog>

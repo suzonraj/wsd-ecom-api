@@ -5,5 +5,6 @@ import java.util.List;
 
 public interface OrderService {
 
-  List<TopSellingItemDto> getTopSellingItemsOfAllTime(int n);
+  List<TopSellingItemDto> getTopNSellingItemsOfAllTime(int n);
+  List<TopSellingItemDto> getTop5SellingItemsOfLastMonth(int n);
 }

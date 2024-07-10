@@ -1,14 +1,10 @@
 package com.wsd.wsdecom.controller;
 
-import com.wsd.wsdecom.dto.MaxSaleDayResponseDto;
 import com.wsd.wsdecom.dto.TopSellingItemDto;
-import com.wsd.wsdecom.dto.TotalSalesResponseDto;
 import com.wsd.wsdecom.service.OrderService;
-import com.wsd.wsdecom.service.SalesService;
 import com.wsd.wsdecom.util.response.ResponseCode;
 import com.wsd.wsdecom.util.response.ResponseDto;
 import com.wsd.wsdecom.util.response.ResponseUtil;
-import java.time.LocalDate;
 import java.util.List;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,9 +22,23 @@ public class OrderController {
   }
 
   @GetMapping("/orders/top-all-time")
-  public ResponseEntity<?> getTopSellingItemsOfAllTime(@RequestParam("n") int n) {
+  public ResponseEntity<?> getTopNSellingItemsOfAllTime(@RequestParam("n") int n) {
     ResponseDto<Object> response = new ResponseDto<>();
-    List<TopSellingItemDto> topSellingItems = orderService.getTopSellingItemsOfAllTime(n);
+    List<TopSellingItemDto> topSellingItems = orderService.getTopNSellingItemsOfAllTime(n);
+
+    response.setData(topSellingItems);
+    response.setCode(ResponseCode.SUCCESS.getCode());
+    response.setMessage(ResponseCode.SUCCESS.getMessage());
+    response.setSuccess(true);
+
+
+    return ResponseUtil.response(response);
+  }
+
+  @GetMapping("/orders/top-last-month")
+  public ResponseEntity<?> getTopNSellingItemsOfLastMonth(@RequestParam("n") int n) {
+    ResponseDto<Object> response = new ResponseDto<>();
+    List<TopSellingItemDto> topSellingItems = orderService.getTop5SellingItemsOfLastMonth(n);
 
     response.setData(topSellingItems);
     response.setCode(ResponseCode.SUCCESS.getCode());

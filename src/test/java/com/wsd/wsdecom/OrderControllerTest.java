@@ -61,4 +61,34 @@ public class OrderControllerTest {
         .andExpect(jsonPath("$.data[2].totalSalesAmount").value(700))
         .andExpect(jsonPath("$.data[2].totalSalesQuantity").value(1));
   }
+
+  @Test
+  public void testGetTop5SellingItemsOfLastMonthTest() throws Exception {
+    List<TopSellingItemDto> topSellingItems = Arrays.asList(
+        new TopSellingItemDto(2L, "Laptop", new BigDecimal("22500.00"), 3L),
+        new TopSellingItemDto(1L, "Google pixel 9 pro", new BigDecimal("2600.00"), 2L),
+        new TopSellingItemDto(3L, "Smartphone", new BigDecimal("700.00"), 1L)
+    );
+
+    when(orderService.getTopSellingItemsOfAllTime(5)).thenReturn(topSellingItems);
+
+    mockMvc.perform(get("/v1/orders/top-all-time")
+            .param("n", "5"))
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("$.code").value(200))
+        .andExpect(jsonPath("$.message").value("Success"))
+        .andExpect(jsonPath("$.success").value(true))
+        .andExpect(jsonPath("$.data[0].itemId").value(2))
+        .andExpect(jsonPath("$.data[0].itemName").value("Laptop"))
+        .andExpect(jsonPath("$.data[0].totalSalesAmount").value(22500))
+        .andExpect(jsonPath("$.data[0].totalSalesQuantity").value(3))
+        .andExpect(jsonPath("$.data[1].itemId").value(1))
+        .andExpect(jsonPath("$.data[1].itemName").value("Google pixel 9 pro"))
+        .andExpect(jsonPath("$.data[1].totalSalesAmount").value(2600))
+        .andExpect(jsonPath("$.data[1].totalSalesQuantity").value(2))
+        .andExpect(jsonPath("$.data[2].itemId").value(3))
+        .andExpect(jsonPath("$.data[2].itemName").value("Smartphone"))
+        .andExpect(jsonPath("$.data[2].totalSalesAmount").value(700))
+        .andExpect(jsonPath("$.data[2].totalSalesQuantity").value(1));
+  }
 }

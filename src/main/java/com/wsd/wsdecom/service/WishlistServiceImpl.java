@@ -1,28 +1,22 @@
 package com.wsd.wsdecom.service;
 
-import com.wsd.wsdecom.dto.ItemDto;
-import com.wsd.wsdecom.dto.WishlistDto;
 import com.wsd.wsdecom.dto.WishlistResponseDto;
-import com.wsd.wsdecom.entity.Item;
 import com.wsd.wsdecom.entity.Wishlist;
-import com.wsd.wsdecom.mapper.ItemMapper;
-import com.wsd.wsdecom.mapper.WishlistMapper;
 import com.wsd.wsdecom.repository.WishlistRepository;
 import com.wsd.wsdecom.util.response.ResponseCode;
 import com.wsd.wsdecom.util.response.ResponseDto;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
 @Service
-public class IWishlistServiceImpl implements IWishlistService {
+public class WishlistServiceImpl implements WishlistService {
 
   private final WishlistRepository wishlistRepository;
 
-  public IWishlistServiceImpl(WishlistRepository wishlistRepository) {
+  public WishlistServiceImpl(WishlistRepository wishlistRepository) {
     this.wishlistRepository = wishlistRepository;
   }
 

@@ -9,4 +9,5 @@
   <include file="classpath:db/changelog/dml/initial-data.xml"/>
 
   <include file="classpath:db/changelog/ddl/001-add-phone-column-to-customers.xml"/>
+  <include file="classpath:db/changelog/dml/002-insert-todays-sales-data.xml"/>
 </databaseChangeLog>

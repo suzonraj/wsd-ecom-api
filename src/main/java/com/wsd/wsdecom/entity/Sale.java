@@ -8,6 +8,7 @@ import lombok.Setter;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Getter
@@ -32,5 +33,5 @@ public class Sale implements Serializable {
     private LocalDateTime saleDate;
 
     @Column(nullable = false)
-    private double amount;
+    private BigDecimal amount;
 }

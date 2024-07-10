@@ -1,8 +1,7 @@
 package com.wsd.wsdecom.controller;
 
-import com.wsd.wsdecom.service.IWishlistService;
+import com.wsd.wsdecom.service.WishlistService;
 import com.wsd.wsdecom.util.response.ResponseUtil;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,9 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/v1")
 public class WishlistController {
-  private final IWishlistService wishlistService;
+  private final WishlistService wishlistService;
 
-  public WishlistController(IWishlistService wishlistService) {
+  public WishlistController(WishlistService wishlistService) {
     this.wishlistService = wishlistService;
   }
 

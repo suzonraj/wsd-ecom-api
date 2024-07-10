@@ -1,9 +1,12 @@
 package com.wsd.wsdecom.service;
 
+import com.wsd.wsdecom.dto.MaxSaleDayResponseDto;
 import com.wsd.wsdecom.dto.TotalSalesResponseDto;
 import com.wsd.wsdecom.repository.SaleRepository;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -21,5 +24,11 @@ public class SalesServiceImpl implements SalesService {
     totalSales = totalSales != null ? totalSales : BigDecimal.ZERO;
 
     return TotalSalesResponseDto.builder().totalSales(totalSales).build();
+  }
+
+  @Override
+  public MaxSaleDayResponseDto getMaxSaleDay(LocalDate startDate, LocalDate endDate) {
+    LocalDateTime maxSaleDate = salesRepository.getMaxSaleDateInRange(startDate.atStartOfDay(), LocalDateTime.of(endDate, LocalTime.MAX));
+    return MaxSaleDayResponseDto.builder().maxSaleDay(maxSaleDate.toString()).build();
   }
 }

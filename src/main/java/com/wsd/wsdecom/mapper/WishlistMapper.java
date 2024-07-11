@@ -8,7 +8,7 @@ import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
 
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = ComponentModel.SPRING, uses = {
-    ItemMapper.class, CustomerMapper.class})
+        ItemMapper.class, CustomerMapper.class})
 public interface WishlistMapper {
 
     WishlistMapper INSTANCE = Mappers.getMapper(WishlistMapper.class);

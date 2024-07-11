@@ -2,8 +2,9 @@ package com.wsd.wsdecom.mapper;
 
 import com.wsd.wsdecom.dto.ItemDto;
 import com.wsd.wsdecom.entity.Item;
-import org.mapstruct.*;
+import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants.ComponentModel;
+import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
 
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = ComponentModel.SPRING)

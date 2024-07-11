@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <databaseChangeLog
-  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
 
-  <include file="classpath:db/changelog/ddl/initial-schema.xml"/>
-  <include file="classpath:db/changelog/dml/initial-data.xml"/>
+    <include file="classpath:db/changelog/ddl/initial-schema.xml"/>
+    <include file="classpath:db/changelog/dml/initial-data.xml"/>
 
-  <include file="classpath:db/changelog/ddl/001-add-phone-column-to-customers.xml"/>
-  <include file="classpath:db/changelog/dml/002-insert-todays-sales-data.xml"/>
-  <include file="classpath:db/changelog/dml/003-insert-lastmonth-order-data.xml"/>
+    <include file="classpath:db/changelog/ddl/001-add-phone-column-to-customers.xml"/>
+    <include file="classpath:db/changelog/dml/002-insert-todays-sales-data.xml"/>
+    <include file="classpath:db/changelog/dml/003-insert-lastmonth-order-data.xml"/>
 </databaseChangeLog>

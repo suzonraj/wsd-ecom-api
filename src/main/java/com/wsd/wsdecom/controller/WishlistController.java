@@ -11,15 +11,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/v1")
 public class WishlistController {
-  private final WishlistService wishlistService;
+    private final WishlistService wishlistService;
 
-  public WishlistController(WishlistService wishlistService) {
-    this.wishlistService = wishlistService;
-  }
+    public WishlistController(WishlistService wishlistService) {
+        this.wishlistService = wishlistService;
+    }
 
-  @GetMapping("/wishlist/{customerId}")
-  public ResponseEntity<?> getCustomerWishlist(@PathVariable("customerId") Long customerId) {
-    return ResponseUtil.response(wishlistService.getCustomerWishlist(customerId));
-  }
+    @GetMapping("/wishlist/{customerId}")
+    public ResponseEntity<?> getCustomerWishlist(@PathVariable("customerId") Long customerId) {
+        return ResponseUtil.response(wishlistService.getCustomerWishlist(customerId));
+    }
 
 }

@@ -14,11 +14,11 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @NoArgsConstructor
 public class TopSellingItemDto implements Serializable {
-  @Serial
-  private static final long serialVersionUID = -3663096980012553913L;
+    @Serial
+    private static final long serialVersionUID = -3663096980012553913L;
 
-  private Long itemId;
-  private String itemName;
-  private BigDecimal totalSalesAmount;
-  private Long totalSalesQuantity;
+    private Long itemId;
+    private String itemName;
+    private BigDecimal totalSalesAmount;
+    private Long totalSalesQuantity;
 }

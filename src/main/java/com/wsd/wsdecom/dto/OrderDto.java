@@ -1,9 +1,5 @@
 package com.wsd.wsdecom.dto;
 
-import com.wsd.wsdecom.entity.Customer;
-import com.wsd.wsdecom.entity.OrderItem;
-import com.wsd.wsdecom.entity.Sale;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

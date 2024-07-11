@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <databaseChangeLog
-  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.4.xsd">
 
-  <property name="now" value="now()" dbms="mysql,h2, postgresql"/>
-  <property name="now" value="sysdate" dbms="oracle"/>
-  <property name="now" value="getdate()" dbms="mssql"/>
+    <property name="now" value="now()" dbms="mysql,h2, postgresql"/>
+    <property name="now" value="sysdate" dbms="oracle"/>
+    <property name="now" value="getdate()" dbms="mssql"/>
 
-  <changeSet id="1" author="almas">
-    <insert tableName="sales">
-      <column name="order_id" value="1"/>
-      <column name="sale_date" value="${now}"/>
-      <column name="amount" value="10300.00"/>
-    </insert>
-    <insert tableName="sales">
-      <column name="order_id" value="2"/>
-      <column name="sale_date" value="${now}"/>
-      <column name="amount" value="4500.00"/>
-    </insert>
-    <insert tableName="sales">
-      <column name="order_id" value="3"/>
-      <column name="sale_date" value="${now}"/>
-      <column name="amount" value="2000.00"/>
-    </insert>
-  </changeSet>
+    <changeSet id="1" author="almas">
+        <insert tableName="sales">
+            <column name="order_id" value="1"/>
+            <column name="sale_date" value="${now}"/>
+            <column name="amount" value="10300.00"/>
+        </insert>
+        <insert tableName="sales">
+            <column name="order_id" value="2"/>
+            <column name="sale_date" value="${now}"/>
+            <column name="amount" value="4500.00"/>
+        </insert>
+        <insert tableName="sales">
+            <column name="order_id" value="3"/>
+            <column name="sale_date" value="${now}"/>
+            <column name="amount" value="2000.00"/>
+        </insert>
+    </changeSet>
 </databaseChangeLog>

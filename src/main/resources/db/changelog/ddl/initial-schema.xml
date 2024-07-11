@@ -1,106 +1,106 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <databaseChangeLog
-  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
-  <property name="now" value="now()" dbms="mysql,h2, postgresql"/>
-  <property name="now" value="sysdate" dbms="oracle"/>
-  <property name="now" value="getdate()" dbms="mssql"/>
-  
-  <changeSet id="1" author="almas">
-    <createTable tableName="customers">
-      <column name="id" type="SERIAL">
-        <constraints primaryKey="true" nullable="false"/>
-      </column>
-      <column name="name" type="VARCHAR(255)">
-        <constraints nullable="false"/>
-      </column>
-      <column name="email" type="VARCHAR(255)">
-        <constraints unique="true" nullable="false"/>
-      </column>
-      <column name="created_at" type="TIMESTAMP" defaultValueComputed="${now}"/>
-    </createTable>
-  </changeSet>
+    <property name="now" value="now()" dbms="mysql,h2, postgresql"/>
+    <property name="now" value="sysdate" dbms="oracle"/>
+    <property name="now" value="getdate()" dbms="mssql"/>
 
-  <changeSet id="2" author="almas">
-    <createTable tableName="items">
-      <column name="id" type="SERIAL">
-        <constraints primaryKey="true" nullable="false"/>
-      </column>
-      <column name="name" type="VARCHAR(255)">
-        <constraints nullable="false"/>
-      </column>
-      <column name="description" type="TEXT"/>
-      <column name="price" type="DECIMAL(10, 2)">
-        <constraints nullable="false"/>
-      </column>
-      <column name="created_at" type="TIMESTAMP" defaultValueComputed="${now}"/>
-    </createTable>
-  </changeSet>
+    <changeSet id="1" author="almas">
+        <createTable tableName="customers">
+            <column name="id" type="SERIAL">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(255)">
+                <constraints unique="true" nullable="false"/>
+            </column>
+            <column name="created_at" type="TIMESTAMP" defaultValueComputed="${now}"/>
+        </createTable>
+    </changeSet>
 
-  <changeSet id="3" author="almas">
-    <createTable tableName="orders">
-      <column name="id" type="SERIAL">
-        <constraints primaryKey="true" nullable="false"/>
-      </column>
-      <column name="customer_id" type="INTEGER">
-        <constraints nullable="false" foreignKeyName="fk_orders_customers" references="customers(id)"/>
-      </column>
-      <column name="order_date" type="TIMESTAMP" defaultValueComputed="${now}"/>
-      <column name="total_amount" type="DECIMAL(10, 2)">
-        <constraints nullable="false"/>
-      </column>
-    </createTable>
-  </changeSet>
+    <changeSet id="2" author="almas">
+        <createTable tableName="items">
+            <column name="id" type="SERIAL">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="TEXT"/>
+            <column name="price" type="DECIMAL(10, 2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="TIMESTAMP" defaultValueComputed="${now}"/>
+        </createTable>
+    </changeSet>
 
-  <changeSet id="4" author="almas">
-    <createTable tableName="order_items">
-      <column name="id" type="SERIAL">
-        <constraints primaryKey="true" nullable="false"/>
-      </column>
-      <column name="order_id" type="INTEGER">
-        <constraints nullable="false" foreignKeyName="fk_order_items_orders" references="orders(id)"/>
-      </column>
-      <column name="item_id" type="INTEGER">
-        <constraints nullable="false" foreignKeyName="fk_order_items_items" references="items(id)"/>
-      </column>
-      <column name="quantity" type="INTEGER">
-        <constraints nullable="false"/>
-      </column>
-      <column name="price" type="DECIMAL(10, 2)">
-        <constraints nullable="false"/>
-      </column>
-    </createTable>
-  </changeSet>
+    <changeSet id="3" author="almas">
+        <createTable tableName="orders">
+            <column name="id" type="SERIAL">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="customer_id" type="INTEGER">
+                <constraints nullable="false" foreignKeyName="fk_orders_customers" references="customers(id)"/>
+            </column>
+            <column name="order_date" type="TIMESTAMP" defaultValueComputed="${now}"/>
+            <column name="total_amount" type="DECIMAL(10, 2)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
 
-  <changeSet id="5" author="almas">
-    <createTable tableName="sales">
-      <column name="id" type="SERIAL">
-        <constraints primaryKey="true" nullable="false"/>
-      </column>
-      <column name="order_id" type="INTEGER">
-        <constraints nullable="false" foreignKeyName="fk_sales_orders" references="orders(id)"/>
-      </column>
-      <column name="sale_date" type="TIMESTAMP" defaultValueComputed="${now}"/>
-      <column name="amount" type="DECIMAL(10, 2)">
-        <constraints nullable="false"/>
-      </column>
-    </createTable>
-  </changeSet>
+    <changeSet id="4" author="almas">
+        <createTable tableName="order_items">
+            <column name="id" type="SERIAL">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="order_id" type="INTEGER">
+                <constraints nullable="false" foreignKeyName="fk_order_items_orders" references="orders(id)"/>
+            </column>
+            <column name="item_id" type="INTEGER">
+                <constraints nullable="false" foreignKeyName="fk_order_items_items" references="items(id)"/>
+            </column>
+            <column name="quantity" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="price" type="DECIMAL(10, 2)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
 
-  <changeSet id="6" author="almas">
-    <createTable tableName="wishlist">
-      <column name="id" type="SERIAL">
-        <constraints primaryKey="true" nullable="false"/>
-      </column>
-      <column name="customer_id" type="INTEGER">
-        <constraints nullable="false" foreignKeyName="fk_wishlist_customers" references="customers(id)"/>
-      </column>
-      <column name="item_id" type="INTEGER">
-        <constraints nullable="false" foreignKeyName="fk_wishlist_items" references="items(id)"/>
-      </column>
-      <column name="added_at" type="TIMESTAMP" defaultValueComputed="${now}"/>
-    </createTable>
-  </changeSet>
+    <changeSet id="5" author="almas">
+        <createTable tableName="sales">
+            <column name="id" type="SERIAL">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="order_id" type="INTEGER">
+                <constraints nullable="false" foreignKeyName="fk_sales_orders" references="orders(id)"/>
+            </column>
+            <column name="sale_date" type="TIMESTAMP" defaultValueComputed="${now}"/>
+            <column name="amount" type="DECIMAL(10, 2)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="6" author="almas">
+        <createTable tableName="wishlist">
+            <column name="id" type="SERIAL">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="customer_id" type="INTEGER">
+                <constraints nullable="false" foreignKeyName="fk_wishlist_customers" references="customers(id)"/>
+            </column>
+            <column name="item_id" type="INTEGER">
+                <constraints nullable="false" foreignKeyName="fk_wishlist_items" references="items(id)"/>
+            </column>
+            <column name="added_at" type="TIMESTAMP" defaultValueComputed="${now}"/>
+        </createTable>
+    </changeSet>
 </databaseChangeLog>

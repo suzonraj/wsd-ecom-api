@@ -15,12 +15,11 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ItemDto implements Serializable {
-  @Serial
-  private static final long serialVersionUID = -3663096980012553913L;
-
-  private Long id;
-  String name;
-  String description;
-  BigDecimal price;
-  LocalDateTime createdAT;
+    @Serial
+    private static final long serialVersionUID = -3663096980012553913L;
+    String name;
+    String description;
+    BigDecimal price;
+    LocalDateTime createdAT;
+    private Long id;
 }

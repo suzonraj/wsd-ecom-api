@@ -1,15 +1,15 @@
 package com.wsd.wsdecom.dto;
 
-import com.wsd.wsdecom.entity.Customer;
 import com.wsd.wsdecom.entity.Item;
-import java.io.Serial;
-import java.io.Serializable;
-import java.time.LocalDateTime;
-import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.io.Serial;
+import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter
 @Setter
@@ -26,7 +26,7 @@ public class WishlistResponseDto implements Serializable {
     @Setter
     @AllArgsConstructor
     @NoArgsConstructor
-    public static class WishlistItemDto{
+    public static class WishlistItemDto {
         private Item item;
         private LocalDateTime addedAt;
     }
